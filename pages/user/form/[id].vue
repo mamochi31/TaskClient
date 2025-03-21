@@ -29,7 +29,7 @@ const user = reactive({ ...userData.value });
 
 const submitUser = async () => {
     await $fetch(`http://localhost:8080/api/users${id ? '/' + id : ''}`, {
-        method: id !== 'new' ? 'PUT' : 'POST',
+        method: id ? 'PUT' : 'POST',
         body: user,
     });
     router.push('/user');
